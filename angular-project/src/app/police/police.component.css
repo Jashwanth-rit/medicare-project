@@ -1,0 +1,49 @@
+.police-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto 20px;
+  }
+  
+  .police-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .police-info {
+    flex-grow: 1;
+    color: #343a40;
+  }
+  
+  .police-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+  
+  .police-info strong {
+    color: #495057;
+  }
+
+  .empty {
+    text-align: center;
+    color: grey;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-top: 50px;
+  }
+  
+  .empty:hover {
+    color: red;
+    font-weight: bold;
+  }
+  

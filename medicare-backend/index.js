@@ -37,6 +37,43 @@ const Product = mongoose.model("Product", new mongoose.Schema({
   category: String
 }));
 
+const HealthcareTaker = mongoose.model("HealthcareTaker", new mongoose.Schema({
+  id: String, // Unique identifier for the healthcare taker
+  name: String, // Name of the healthcare taker
+  specialty: String, // Area of expertise or specialty
+  phone: String, // Contact number
+  email: String, // Email address
+  location: String, // Address or location
+  availability: String, // Availability details (e.g., "9 AM - 5 PM")
+  image: String // URL or path to the healthcare taker's image
+}));
+
+
+const PoliceInfo = mongoose.model("PoliceInfo", new mongoose.Schema({
+  id: String, // Unique identifier for the police record
+  officerName: String, // Name of the officer
+  badgeNumber: String, // Badge number
+  station: String, // Police station name
+  location: String, // Location of the police station
+  contact: String, // Contact number
+  jurisdiction: String, // Jurisdiction or area of coverage
+  email: String, // Email address
+  image: String // URL or path to the officer's image
+}));
+
+
+const FireExtinguisher = mongoose.model("FireExtinguisher", new mongoose.Schema({
+  id: String, // Unique identifier for the fire extinguisher
+  type: String, // Type of extinguisher (e.g., "CO2", "Foam", "Water")
+  location: String, // Location of the fire extinguisher
+  maintenanceDate: Date, // Last maintenance date
+  expiryDate: Date, // Expiry date for the fire extinguisher
+  capacity: String, // Capacity of the extinguisher (e.g., "5kg")
+  contact: String, // Emergency contact for maintenance or support
+  image: String // URL or path to the fire extinguisher's image
+}));
+
+
 
 const ReminderSchema = new mongoose.Schema({
   name: { type: String, required: true }, // Name of the reminder
@@ -137,9 +174,11 @@ const Seller = mongoose.model("Seller", new mongoose.Schema({
 
 const AmbulanceSchema = new mongoose.Schema({
   vehicleNumber: { type: String, required: true }, // Unique number or identifier for the ambulance
+  imageurl: { type: String, required: true },
   phoneNumber: { type: String, required: true }, // Contact number for the ambulance
   currentPlace: { type: String, required: true }, // Current location of the ambulance
-  availability: { type: Boolean, required: true } // Whether the ambulance is available or not
+  availability: { type: Boolean, required: true },
+ // Whether the ambulance is available or not
 });
 
 const Ambulance = mongoose.model("Ambulance", AmbulanceSchema);
@@ -168,6 +207,7 @@ const MedicalShop = mongoose.model("MedicalShop", MedicalShopSchema);
 
 const DoctorSessionSchema = new mongoose.Schema({
   doctorName: { type: String, required: true }, // Name of the doctor
+  imageurl: { type: String, required: true }, // Image of the doctor
   age: { type: Number, required: true }, // Doctor's age
   fees: { type: Number, required: true }, // Consultation fees
   category: { 
@@ -220,6 +260,94 @@ app.post("/user/login", async (req, res) => {
   }
 });
 
+app.get('/reminders', async (req, res) => {
+  try {
+    const reminders = await Reminder.find();
+    res.status(200).json(reminders);
+  } catch (err) {
+    console.error('Error fetching reminders:', err);
+    res.status(500).json({ error: 'Failed to fetch reminders', details: err.message });
+  }
+});
+
+app.get('/fire-extinguishers', async (req, res) => {
+  try {
+    const fireExtinguishers = await FireExtinguisher.find(); // Fetch all fire extinguisher records
+    res.status(200).json(fireExtinguishers);
+  } catch (err) {
+    console.error('Error fetching fire extinguishers:', err);
+    res.status(500).json({ 
+      error: 'Failed to fetch fire extinguishers', 
+      details: err.message 
+    });
+  }
+});
+
+app.post('/reminders', async (req, res) => {
+  try {
+    const reminder = new Reminder(req.body);
+    const savedReminder = await reminder.save();
+    res.status(201).json(savedReminder);
+  } catch (err) {
+    res.status(400).json({ error: 'Failed to add reminder', details: err.message });
+  }
+});
+
+app.get('/police-services', async (req, res) => {
+  try {
+    const policeServices = await PoliceInfo.find();
+    res.status(200).json(policeServices);
+  } catch (err) {
+    console.error('Error fetching police services:', err);
+    res.status(500).json({ error: 'Failed to fetch police services', details: err.message });
+  }
+});
+
+app.get('/healthcare-takers', async (req, res) => {
+  try {
+    const takers = await HealthcareTaker.find();
+    res.status(200).json(takers);
+  } catch (err) {
+    console.error('Error fetching healthcare takers:', err);
+    res.status(500).json({ error: 'Failed to fetch healthcare takers', details: err.message });
+  }
+});
+
+app.get('/ambulances', async (req, res) => {
+  try {
+    const ambulances = await Ambulance.find();
+    res.status(200).json(ambulances);
+  } catch (err) {
+    console.error('Error fetching ambulances:', err);
+    res.status(500).json({ error: 'Failed to fetch ambulances', details: err.message });
+  }
+});
+
+app.get('/donations', async (req, res) => {
+  try {
+    const donations = await Patient.find();
+    res.status(200).json(donations);
+  } catch (error) {
+    console.error('Error fetching donations:', error);
+    res.status(500).json({ message: 'Error fetching donations', error });
+  }
+});
+
+app.delete('/reminders/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await Reminder.findByIdAndDelete(id);
+    if (!result) {
+      return res.status(404).json({ error: 'Reminder not found' });
+    }
+    res.status(200).json({ message: 'Reminder deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete reminder', details: error.message });
+  }
+});
+
+
+
 app.get("/carousel", async (req, res) => {
   try {
     const limit = req.query._limit ? parseInt(req.query._limit) : 0;
@@ -229,6 +357,7 @@ app.get("/carousel", async (req, res) => {
     res.status(500).send({ message: "Error fetching carousel data", error });
   }
 });
+
 
 // POST: Add Product (Protected Route)
 app.post("/products", async (req, res) => {
@@ -267,6 +396,21 @@ app.delete('/buy/:id', async (req, res) => {
   }
 });
 // GET: Get Products (Protected Route)
+
+app.get('/doctors/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const doctor = await Doctor.findOne({ id }); // Adjust based on your database structure
+    if (!doctor) {
+      return res.status(404).json({ error: 'Doctor not found' });
+    }
+    res.status(200).json(doctor);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch doctor data', details: err.message });
+  }
+});  
+
+
 app.get("/products", async (req, res) => {
   try {
     const products = await Product.find();
@@ -274,6 +418,15 @@ app.get("/products", async (req, res) => {
   } catch (error) {
     console.error("Error fetching products", error);
     res.status(400).send({ error: "Error fetching products" });
+  }
+});
+app.get('/doctors', async (req, res) => {
+  try {
+    const doctorSessions = await DoctorSession.find(); // Fetch all sessions
+    res.status(200).send(doctorSessions);
+  } catch (error) {
+    console.error('Error fetching doctor sessions:', error);
+    res.status(400).send({ error: 'Error fetching doctor sessions' });
   }
 });
 

@@ -1,0 +1,143 @@
+.reminder-section {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .reminder-category {
+    margin-bottom: 30px;
+  }
+  
+  .reminder-category h3 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+  }
+  
+  .reminder-item {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .reminder-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .reminder-item h4 {
+    color: #3498db;
+    margin-bottom: 5px;
+  }
+  
+
+
+  .reminder-section {
+    padding: 20px;
+  }
+  
+  .add-reminder-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .add-reminder-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .add-reminder-form {
+    margin-bottom: 20px;
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .add-reminder-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .add-reminder-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-reminder-form button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .add-reminder-form button:hover {
+    background-color: #27ae60;
+  }
+  
+  .reminder-section {
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  .reminder-category {
+    margin-top: 20px;
+  }
+  
+  .reminder-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #ffffff;
+  }
+  
+  .add-reminder-btn {
+    padding: 10px 15px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-reminder-form {
+    margin-top: 20px;
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  button {
+    margin-top: 10px;
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .empty {
+    text-align: center;
+    color: grey;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-top: 50px;
+  }
+  
+  .empty:hover {
+    color: red;
+    font-weight: bold;
+  }
+  

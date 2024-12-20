@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="">E-commerce</a>
+    <a class="navbar-brand" routerLink="">+Medicare</a>
 
     <div class="search">
       <form class="d-flex ms-auto" (submit)="onSearch($event)">
@@ -18,7 +18,7 @@
       </form>
 
       <!-- Search Results Dropdown -->
-      <div *ngIf="searchResults.length > 0" class="search-results" >
+      <div *ngIf="searchResults.length > 0" class="search-results">
         <ul>
           <li *ngFor="let product of searchResults">
             {{ product.name }} - ${{ product.price }}
@@ -28,13 +28,9 @@
     </div>
 
     <div class="menu ms-auto">
-      <!-- Menu based on role -->
       <div [ngSwitch]="menutype" class="menu-content">
         <!-- Default Menu -->
         <ul *ngSwitchCase="'default'" class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" routerLinkActive="active">Home</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="seller" routerLinkActive="active">Seller</a>
           </li>
@@ -54,6 +50,13 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="seller-add" routerLinkActive="active">Add Products</a>
           </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" routerLink="seller-add" routerLinkActive="active">Add doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="seller-home" routerLinkActive="active">orders</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" (click)="logout()">Logout ({{ sellername }})</a>
           </li>
@@ -61,12 +64,81 @@
 
         <!-- User Menu -->
         <ul *ngSwitchCase="'user'" class="navbar-nav">
+       
+          <!-- Emergency Services Dropdown -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="emergencyDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              routerLinkActive="active"
+            >
+              Emergency Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="emergencyDropdown">
+              <li><a class="dropdown-item" routerLink="ambulance">Ambulance</a></li>
+              <li><a class="dropdown-item" routerLink="healthcare">Healthcare</a></li>
+              <li><a class="dropdown-item" routerLink="police">Police Services</a></li>
+              <li><a class="dropdown-item" routerLink="fire">Fire Services</a></li>
+            </ul>
+          </li>
+
+          <!-- Medishop Dropdown -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="medishopDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              routerLinkActive="active"
+            >
+              Medishop
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="medishopDropdown">
+              <li><a class="dropdown-item" routerLink="home">Shop</a></li>
+              <li><a class="dropdown-item" routerLink="cart">Cart</a></li>
+              <li><a class="dropdown-item" routerLink="buy">Buy</a></li>
+              <li><a class="dropdown-item" routerLink="orders">Orders</a></li>
+            </ul>
+          </li>
+
+          <!-- Doctor Session Dropdown -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="doctorSessionDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              routerLinkActive="active"
+            >
+              Doctor Session
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="doctorSessionDropdown">
+              <li><a class="dropdown-item" routerLink="physical">Physical Health</a></li>
+              <li><a class="dropdown-item" routerLink="mental">Mental</a></li>
+              <li><a class="dropdown-item" routerLink="suggestions">Suggestions</a></li>
+              <li><a class="dropdown-item" routerLink="precautions">Precautions</a></li>
+            </ul>
+          </li>
+
           <li class="nav-item">
-            <a class="nav-link" routerLink="seller" routerLinkActive="active">Seller</a>
+            <a class="nav-link" routerLink="pregnency" routerLinkActive="active">Pregnancy</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="reminder" routerLinkActive="active">Reminder</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="" routerLinkActive="active">User Home</a>
+            <a class="nav-link" routerLink="donate" routerLinkActive="active">Donate</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" routerLink="orders" routerLinkActive="active">Orders</a>
           </li>
@@ -74,13 +146,14 @@
             <a class="nav-link" (click)="userlogout()">Logout ({{ username }})</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="cart" routerLinkActive="active">Cart ({{cartlength}})</a>
+            <a class="nav-link" routerLink="seller" routerLinkActive="active">Seller</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="buy" routerLinkActive="active">$Buy</a>
-          </li>
+
+         
         </ul>
       </div>
     </div>
   </div>
+  
+
 </nav>

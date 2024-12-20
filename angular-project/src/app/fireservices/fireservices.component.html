@@ -1,0 +1,18 @@
+<div *ngFor="let extinguisher of fireExtinguishers" class="extinguisher-card">
+    <img 
+      [src]="extinguisher.image" 
+      [alt]="extinguisher.id" 
+      class="extinguisher-image" 
+    />
+    <div class="extinguisher-info">
+      <p><strong>ID:</strong> {{ extinguisher.id }}</p>
+      <p><strong>Type:</strong> {{ extinguisher.type }}</p>
+      <p><strong>Location:</strong> {{ extinguisher.location }}</p>
+      <p><strong>Capacity:</strong> {{ extinguisher.capacity }}</p>
+      <p><strong>Maintenance Date:</strong> {{ extinguisher.maintenanceDate | date }}</p>
+      <p><strong>Expiry Date:</strong> {{ extinguisher.expiryDate | date }}</p>
+      <p><strong>Contact:</strong> {{ extinguisher.contact }}</p>
+    </div>
+  </div>
+  
+  <h2 *ngIf="!fireExtinguishers || fireExtinguishers.length === 0" class="empty">No FireExtinguishers nearby</h2>

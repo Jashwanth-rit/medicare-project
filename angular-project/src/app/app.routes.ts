@@ -14,11 +14,76 @@ import { userAuthGuard } from './user-auth.guard';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SearchSellerComponent } from './search-seller/search-seller.component';
+import { MainHomeComponent } from './main-home/main-home.component';
+import { PhysicalComponent } from './physical/physical.component';
+import { MentalComponent } from './mental/mental.component';
+import { SuggestionComponent } from './suggestion/suggestion.component';
+import { PrecautionComponent } from './precaution/precaution.component';
+import { AmbulanceComponent } from './ambulance/ambulance.component';
+import { HealthcareComponent } from './healthcare/healthcare.component';
+import { PoliceComponent } from './police/police.component';
+import { FireservicesComponent } from './fireservices/fireservices.component';
+import { PregnencyComponent } from './pregnency/pregnency.component';
+import { ReminderComponent } from './reminder/reminder.component';
+import { DonateComponent } from './donate/donate.component';
+import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 
 export const routes: Routes = [
     {
-        path:'',
+        path:'home',
         component:HomeComponent
+    },
+    {
+        path:'physical',
+        component:PhysicalComponent
+    },
+    {
+        path:'mental',
+        component:MentalComponent
+    },
+    {
+        path:'suggestions',
+        component:SuggestionComponent
+    },
+    {
+        path:'ambulance',
+        component:AmbulanceComponent
+    },
+    {
+        path:'healthcare',
+        component:HealthcareComponent
+    },
+    {
+        path:'police',
+        component:PoliceComponent
+    },
+    {
+        path:'pregnency',
+        component:PregnencyComponent
+    },
+    {
+        path:'reminder',
+        component:ReminderComponent
+    },
+    {
+        path:'donate',
+        component:DonateComponent
+    },
+    {
+        path:'doctor-details/:id',
+        component:DoctorDetailsComponent
+    },
+    {
+        path:'fire',
+        component:FireservicesComponent
+    },
+    {
+        path:'precautions',
+        component:PrecautionComponent
+    },
+    {
+        path:'',
+        component:MainHomeComponent
     },
     {
         path:'seller',

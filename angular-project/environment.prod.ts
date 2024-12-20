@@ -1,6 +1,6 @@
 export const environment = {
-    production: true,
-    backendUrl: 'https://e-commerce-beige-omega.vercel.app'
+    production: false,
+    backendUrl: 'http://localhost:3000'
   };
 
   

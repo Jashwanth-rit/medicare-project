@@ -1,0 +1,207 @@
+.doctors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 50px auto 0;
+  }
+  
+  .doctor {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: calc(25% - 20px); /* 4 doctors in one row */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .imgdiv img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .infodiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .doctor-name {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .doctor-specialty {
+    font-size: 1.1rem;
+  
+    margin-bottom: 10px;
+  }
+  
+  .doctor-fee {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #007bff; /* Highlight fee */
+  }
+  
+  .doctor-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .doctor-buttons {
+    margin-top: auto; /* Push buttons to the bottom */
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .doctor-buttons button {
+    background-color: #f8f9fa; /* Light background */
+    color: #343a40; /* Dark text */
+    padding: 10px 20px;
+    font-weight: 600; /* Semi-bold */
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid #343a40; /* Dark border */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  }
+  
+  .doctor-buttons button:hover {
+    background-color: #343a40; /* Dark background */
+    color: #f8f9fa; /* Light text */
+    border-color: #f8f9fa; /* Light border */
+  }
+  
+  .doctor-buttons button:active {
+    background-color: #6c757d; /* Different color on click */
+    color: #ffffff;
+    box-shadow: none; /* Remove shadow on click */
+  }
+  
+
+  /* Doctors Section Styling */
+.doctors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .doctor {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease;
+  }
+  
+  .doctor:hover {
+    transform: scale(1.05);
+  }
+  
+  .imgdiv {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .imgdiv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .infodiv {
+    padding: 15px;
+  }
+  
+  .doctor-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  .doctor-specialty,
+  .doctor-fee,
+  .doctor-description {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  
+  .doctor-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .doctor-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .doctor-buttons button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Pregnancy Routine Chat Section */
+  .pregnancy-chat {
+   
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+  
+  .pregnancy-chat h2 {
+    font-size: 24px;
+   
+    margin-bottom: 15px;
+  }
+  
+  .pregnancy-chat p {
+    font-size: 16px;
+   
+    margin-bottom: 15px;
+  }
+  
+  .pregnancy-chat ul {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  
+  .pregnancy-chat li {
+    font-size: 16px;
+    
+    margin-bottom: 8px;
+  }
+  
+  .pregnancy-chat li::before {
+    content: "✔️ ";
+   
+  }
+  .empty {
+    text-align: center;
+    color: grey;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-top: 50px;
+  }
+  
+  .empty:hover {
+    color: red;
+    font-weight: bold;
+  }

@@ -47,6 +47,10 @@ export class SellerService {
       });
   }
   
+  getDoctorSessions(): Observable<any> {
+    return this.http.get(`${environment.backendUrl}/doctors`);
+  }
+
 
   userSignUp(data: SignUp): void {
     this.http.post(`${environment.backendUrl}/user`, data, { observe: 'response' })
@@ -185,6 +189,43 @@ export class SellerService {
 
   updateproduct(data: any, id: any): Observable<any> {
     return this.http.put(`${environment.backendUrl}/products/${id}`, data);
+  }
+
+  addReminder(reminder: any): Observable<any> {
+    return this.http.post(`${environment.backendUrl}/reminders`, reminder);
+  }
+
+  deleteReminder(id: string): Observable<any> {
+    return this.http.delete<any>(`${environment.backendUrl}/reminders/${id}`);
+  }
+
+  // Method to fetch doctor/product details by ID
+  getdoctordet(id:any): Observable<Product> {
+    return this.http.get<Product>(`${environment.backendUrl}/doctors/${id}`);
+  }
+
+  getReminders(): Observable<any> {
+    return this.http.get<any>(`${environment.backendUrl}/reminders`);
+  }
+
+  getAmbulances(): Observable<any> {
+    return this.http.get<any>(`${environment.backendUrl}/ambulances`);
+  }
+
+  getDonations(): Observable<any> {
+    return this.http.get<any>(`${environment.backendUrl}/donations`);
+  }
+
+  getFireExtinguishers(): Observable<any> {
+    return this.http.get<any>(`${environment.backendUrl}/fire-extinguishers`);
+  }
+
+  getHealthcareTakers(): Observable<any> {
+    return this.http.get<any>(`${environment.backendUrl}/healthcare-takers`);
+  }
+
+  getPoliceServices(): Observable<any> {
+    return this.http.get<any>(`${environment.backendUrl}/police-services`);
   }
 
   reloadSeller(): void {

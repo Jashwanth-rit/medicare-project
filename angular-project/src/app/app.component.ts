@@ -7,6 +7,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { SellerService } from './sellerservice/seller.service';
+import {  OnInit, Inject } from '@angular/core';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +25,7 @@ import { SellerService } from './sellerservice/seller.service';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    FontAwesomeModule,
     
     // Ensure HttpClientModule is imported here
   ],
@@ -27,6 +34,35 @@ import { SellerService } from './sellerservice/seller.service';
 })
 export class AppComponent {
 
+  title = "Medicare";
+
   
-  title = 'angular-project';
+  constructor(@Inject(PLATFORM_ID) private platformId: any,library: FaIconLibrary) {  library.addIconPacks(fas); }
+
+  ngOnInit(): void {
+    // Ensure the code runs only in the browser
+    if (isPlatformBrowser(this.platformId)) {
+      // Check if dark mode is enabled from localStorage
+      if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark-mode');
+      }
+    }
+  }
+
+  toggleDarkMode(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const isDarkModeEnabled = document.body.classList.toggle('dark-mode');
+  
+      // Save the preference in localStorage
+      if (isDarkModeEnabled) {
+        localStorage.setItem('dark-mode', 'enabled');
+      } else {
+        localStorage.removeItem('dark-mode');
+      }
+    }
+  }
+
+  
 }

@@ -1,0 +1,16 @@
+<div class="doctor-details">
+    <h2>Doctor Details</h2>
+    <div *ngIf="doctor" class="doctor-card">
+      <img [src]="doctor.imageurl" [alt]="doctor.doctorName" class="doctor-image" />
+      <p><strong>Name:</strong> {{ doctor.doctorName }}</p>
+      <p><strong>Age:</strong> {{ doctor.age }}</p>
+      <p><strong>Consultation Fees:</strong> ₹{{ doctor.fees }}</p>
+      <p><strong>Category:</strong> {{ doctor.category }}</p>
+      <p><strong>Availability:</strong> {{ doctor.availability ? 'Available' : 'Not Available' }}</p>
+      <p><strong>Added On:</strong> {{ doctor.createdAt | date: 'longDate' }}</p>
+    </div>
+    <div *ngIf="!doctor" class="no-data">
+      <p>No doctor details available.</p>
+    </div>
+  </div>
+  

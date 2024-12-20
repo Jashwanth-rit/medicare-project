@@ -1,0 +1,19 @@
+<div *ngFor="let ambulance of ambulances" class="ambulance-card">
+    <img 
+      [src]="ambulance.imageurl" 
+      [alt]="ambulance.vehicleNumber" 
+      class="ambulance-image" 
+    />
+    <div class="ambulance-info">
+      <p><strong>Vehicle Number:</strong> {{ ambulance.vehicleNumber }}</p>
+      <p><strong>Phone Number:</strong> {{ ambulance.phoneNumber }}</p>
+      <p><strong>Current Place:</strong> {{ ambulance.currentPlace }}</p>
+      <p><strong>Availability:</strong> 
+        <span [ngClass]="ambulance.availability ? 'available' : 'unavailable'">
+          {{ ambulance.availability ? 'Available' : 'Unavailable' }}
+        </span>
+      </p>
+    </div>
+  </div>
+  
+  <h2 *ngIf="!ambulances || ambulances.length === 0" class="empty">No Ambulance nearby</h2>

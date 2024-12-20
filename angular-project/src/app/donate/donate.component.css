@@ -1,0 +1,86 @@
+.cpatient {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .cimgdiv img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .cpatients {
+    margin-top: 20px;
+  }
+  
+  .cinfodiv {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .cinfodiv span {
+    font-size: 1.2rem;
+    color: #343a40;
+    font-weight: bold;
+  }
+  
+  .cpatient button {
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid #343a40;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cpatient button:hover {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+  
+  .cpatient button:active {
+    background-color: #6c757d;
+    color: #ffffff;
+    box-shadow: none;
+  }
+  
+  .delmsg {
+    align-self: center;
+    color: green;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .empty {
+    text-align: center;
+    color: grey;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-top: 50px;
+  }
+  
+  .empty:hover {
+    color: red;
+    font-weight: bold;
+  }
+  

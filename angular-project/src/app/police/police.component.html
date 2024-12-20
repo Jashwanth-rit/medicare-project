@@ -1,0 +1,18 @@
+<div *ngFor="let police of policeServices" class="police-card">
+    <img 
+      [src]="police.image" 
+      [alt]="police.officerName" 
+      class="police-image" 
+    />
+    <div class="police-info">
+      <p><strong>Officer Name:</strong> {{ police.officerName }}</p>
+      <p><strong>Badge Number:</strong> {{ police.badgeNumber }}</p>
+      <p><strong>Station:</strong> {{ police.station }}</p>
+      <p><strong>Location:</strong> {{ police.location }}</p>
+      <p><strong>Contact:</strong> {{ police.contact }}</p>
+      <p><strong>Jurisdiction:</strong> {{ police.jurisdiction }}</p>
+      <p><strong>Email:</strong> {{ police.email }}</p>
+    </div>
+  </div>
+  
+  <h2 *ngIf="!policeServices || policeServices.length === 0" class="empty">No Police-facility nearby</h2>

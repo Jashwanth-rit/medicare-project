@@ -1,0 +1,23 @@
+
+<div *ngFor="let patient of patients; let index = index" class="cpatients">
+  <div class="cpatient" [attr.data-key]="index">
+    <div class="cimgdiv">
+      <!-- You can replace this with a relevant image if necessary -->
+      <img [src]="patient.url" [alt]="patient.name" />
+    </div>
+    <div class="cinfodiv">
+      <span>{{ patient.name }}</span>
+      <span>Disease: {{ patient.disease }}</span>
+      <span>Money Required: ${{ patient.moneyRequired }}</span>
+      <span>Deadline: {{ patient.deadline | date }}</span>
+      <span>Place: {{ patient.place }}</span>
+      <span>Hospitals: {{ patient.hospitals.join(', ') }}</span>
+    </div>
+    <!-- Changed buttons to 'Donate' -->
+    <button (click)="donate(patient.id)">
+      Donate!!
+    </button>
+  </div>
+</div>
+
+<h2 *ngIf="!patients || patients.length === 0" class="empty">No patients available</h2>

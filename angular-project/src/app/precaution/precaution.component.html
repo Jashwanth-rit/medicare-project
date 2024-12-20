@@ -1,0 +1,19 @@
+<div class="doctors">
+    <div class="doctor" *ngFor="let doctor of physicalTreatmentDoctors">
+      <div class="imgdiv">
+        <img [src]="doctor.image" [alt]="doctor.doctorName" />
+      </div>
+      <div class="infodiv">
+        <span class="doctor-name">{{ doctor.doctorName }}</span>
+        <span class="doctor-specialty">{{ doctor.category }}</span>
+        <span class="doctor-fee">Consultation Fee: ₹{{ doctor.fees }}</span>
+        <p class="doctor-description">Age: {{ doctor.age }}</p>
+        <div class="doctor-buttons">
+          <button (click)="bookAppointment(doctor.id)">Book Appointment</button>
+          <button (click)="viewDetails(doctor.id)">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <h2 *ngIf="!physicalTreatmentDoctors || physicalTreatmentDoctors.length === 0" class="empty">No Doctors available</h2>
