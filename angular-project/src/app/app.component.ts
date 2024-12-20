@@ -10,9 +10,7 @@ import { SellerService } from './sellerservice/seller.service';
 import {  OnInit, Inject } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-root',
@@ -25,7 +23,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule,
+    
     
     // Ensure HttpClientModule is imported here
   ],
@@ -37,7 +35,7 @@ export class AppComponent {
   title = "Medicare";
 
   
-  constructor(@Inject(PLATFORM_ID) private platformId: any,library: FaIconLibrary) {  library.addIconPacks(fas); }
+  constructor(@Inject(PLATFORM_ID) private platformId: any) { }
 
   ngOnInit(): void {
     // Ensure the code runs only in the browser

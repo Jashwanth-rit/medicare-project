@@ -1,6 +1,4 @@
 export const environment = {
-    production: false,
-    backendUrl: 'http://localhost:3000'
-  };
-
-  
+  production: true,
+  backendUrl: 'https://projects-sigma-beryl.vercel.app'
+};
