@@ -85,6 +85,7 @@ export const routes: Routes = [
         path:'',
         component:MainHomeComponent
     },
+    { path: '**', redirectTo: '/' },
     {
         path:'seller',
         component:SellerComponent
